@@ -4,16 +4,16 @@ export const config = {
   runtime: 'edge',
 }
 
-export default async function OpenStore() {
+export default async function CloseStore() {
   try {
-    const result = await set('storeClosed', false)
+    const result = await set('closed', true)
 
     if (!result) {
       throw new Error(`Something went wrong when updating the Edge Config`)
     }
 
     return new Response(
-      JSON.stringify({ status: 'ok', message: 'Store is now open' }),
+      JSON.stringify({ status: 'ok', message: 'Store is now closed' }),
       { headers: { 'Content-Type': 'application/json' } }
     )
   } catch (err) {
