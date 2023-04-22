@@ -36,3 +36,8 @@ func init() {
 	// register route
 	registerRouter(r)
 }
+
+// entrypoint
+func Handler(w http.ResponseWriter, r *http.Request) {
+	app.ServeHTTP(w, r)
+}
