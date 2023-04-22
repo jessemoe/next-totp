@@ -1,4 +1,16 @@
 {
-  "buildCommand": "pnpm turbo build",
-  "ignoreCommand": "pnpm dlx turbo-ignore"
+  "github": {
+    "silent": true
+  },
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/entrypoint.go"
+    },
+    {
+      "source": "/.middleware/lock",
+      "destination": "/api/entrypoint.go"
+    }
+  ]
 }
